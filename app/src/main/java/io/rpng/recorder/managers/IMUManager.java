@@ -145,7 +145,7 @@ public class IMUManager implements SensorEventListener {
      */
     public void unregister() {
         mSensorManager.unregisterListener(this, mAccel);
-        mSensorManager.unregisterListener(this, mAccel);
+        mSensorManager.unregisterListener(this, mGyro);
         mSensorManager.unregisterListener(this);
     }
 }
