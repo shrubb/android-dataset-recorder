@@ -21,17 +21,4 @@
         <item>3</item>
     </string-array>
 
-    <string-array name="gpsFreq">
-        <item>Delay 1.0 Sec</item>
-        <item>Delay 3.0  Sec</item>
-        <item>Delay 5.0 Sec</item>
-        <item>Delay 10.0 Sec</item>
-    </string-array>
-    <string-array name="gpsFreqValues">
-        <item>1.0</item>
-        <item>3.0</item>
-        <item>5.0</item>
-        <item>10.0</item>
-    </string-array>
-
 </resources>

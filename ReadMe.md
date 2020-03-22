@@ -10,7 +10,6 @@ To open this project, just load up android studio, and go `File > Open...`. Sele
 * Records IMU data at the same time the images are recorded
 * Custom selection of what camera to use
 * Select what rate of IMU to use
-* Add gps recording (if gps is available)
 * TODO: Look into timestamps to make sure everything is ok
 
 ## Layout

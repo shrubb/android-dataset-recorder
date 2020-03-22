@@ -45,18 +45,18 @@ public class IMUManager implements SensorEventListener {
         this.activity = activity;
         // Create the sensor objects
         mSensorManager = (SensorManager)activity.getSystemService(Context.SENSOR_SERVICE);
-        mAccel = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mGyro = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        mAccel = mSensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+        mGyro = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE_UNCALIBRATED);
     }
 
     @Override
     public final void onAccuracyChanged(Sensor sensor, int accuracy) {
         // Handle accelerometer reading
-        if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+        if (sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION) {
             linear_acc = accuracy;
         }
         // Handle a gyro reading
-        else if (sensor.getType() == Sensor.TYPE_GYROSCOPE) {
+        else if (sensor.getType() == Sensor.TYPE_GYROSCOPE_UNCALIBRATED) {
             angular_acc = accuracy;
         }
     }
@@ -73,12 +73,12 @@ public class IMUManager implements SensorEventListener {
         event.timestamp = new Date().getTime();
 
         // Handle accelerometer reading
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+        if (event.sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION) {
             linear_time = event.timestamp;
             linear_data = event.values;
         }
         // Handle a gyro reading
-        else if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
+        else if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE_UNCALIBRATED) {
             angular_time = event.timestamp;
             angular_data = event.values;
         }

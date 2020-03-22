@@ -37,7 +37,6 @@ import java.util.Date;
 
 import io.rpng.recorder.managers.CameraManager;
 import io.rpng.recorder.R;
-import io.rpng.recorder.managers.GPSManager;
 import io.rpng.recorder.managers.IMUManager;
 import io.rpng.recorder.views.AutoFitTextureView;
 
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
     public static CameraManager mCameraManager;
     public static IMUManager mImuManager;
-    public static GPSManager mGpsManager;
     private static SharedPreferences sharedPreferences;
 
 
@@ -86,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         // Create the camera manager
         mCameraManager = new CameraManager(this, mTextureView, camera2View);
         mImuManager = new IMUManager(this);
-        mGpsManager = new GPSManager(this);
 
         // Set our shared preferences
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -156,11 +153,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Register the listeners
         mImuManager.register();
-
-        // Start background thread
-        mGpsManager.startBackgroundThread();
-        // Register google services
-        mGpsManager.register();
     }
 
     @Override
@@ -174,11 +166,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Unregister the listeners
         mImuManager.unregister();
-
-        // Stop background thread
-        mGpsManager.stopBackgroundThread();
-        // Remove gps listener
-        mGpsManager.unregister();
 
         // Call the super
         super.onPause();
